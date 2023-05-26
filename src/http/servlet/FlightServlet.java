@@ -21,8 +21,9 @@ public class FlightServlet extends HttpServlet {
         resp.setContentType("text/html");
         resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
 
+//        var printWriter = resp.getWriter();
         try(var printWriter = resp.getWriter()) {
-            printWriter.write("<h1>Список перелетов:</h1>");
+        printWriter.write("<h1>Список перелетов:</h1>");
             printWriter.write("<ul>");
             flightService.findAll().forEach(flightDto -> {
                 printWriter.write("""
