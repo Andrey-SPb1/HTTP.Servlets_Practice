@@ -4,8 +4,6 @@ import http.entity.Ticket;
 import http.util.ConnectionManager;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -14,9 +12,9 @@ import java.util.Optional;
 
 public class TicketDao implements Dao<Long, Ticket> {
 
-    private static TicketDao INSTANCE = new TicketDao();
+    private static final TicketDao INSTANCE = new TicketDao();
 
-    private static String FIND_ALL_BY_FLIGHT_ID_SQL = """
+    private static final String FIND_ALL_BY_FLIGHT_ID_SQL = """
             SELECT *
             FROM ticket
             WHERE flight_id = ?
