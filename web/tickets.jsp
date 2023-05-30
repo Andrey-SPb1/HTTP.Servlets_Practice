@@ -8,7 +8,7 @@
   To change this template use File | Settings | File Templates.
   Link: http://localhost:8081/tickets.jsp?flightId=1
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <html>
 <head>
     <title>Title</title>
