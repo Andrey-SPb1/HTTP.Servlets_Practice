@@ -7,7 +7,7 @@
   Date: 05.06.2023
   Time: 13:44
   To change this template use File | Settings | File Templates.
-  Link: http://localhost:8081/app/flights
+  Link: http://localhost:8081/flights
 --%>
 <html>
 <head>
