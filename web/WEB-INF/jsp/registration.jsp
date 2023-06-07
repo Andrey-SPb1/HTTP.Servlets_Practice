@@ -14,12 +14,15 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="/registration" method="post">
+    <form action="${pageContext.request.contextPath}/registration" method="post" enctype="multipart/form-data">
         <label for="nameId">Name:
             <input type="text" name="name" id="nameId">
         </label><br>
         <label for="birthdayId">Birthday:
             <input type="date" name="birthday" id="birthdayId">
+        </label><br>
+        <label for="imageId">Image:
+            <input type="file" name="image" id="imageId">
         </label><br>
         <label for="emailId">Email:
             <input type="text" name="email" id="emailId">
@@ -27,15 +30,19 @@
         <label for="passwordId">Password:
             <input type="password" name="password" id="passwordId">
         </label><br>
-        <select name="role" id="roleId">
-            <c:forEach var="role" items="${requestScope.roles}">
-                <option value="${role}">${role}</option>
+        <label>
+            <select name="role" id="roleId">
+                <c:forEach var="role" items="${requestScope.roles}">
+                    <option value="${role}">${role}</option>
+                </c:forEach>
+            </select><br>
+        </label>
+        <label>
+            <c:forEach var="gender" items="${requestScope.genders}">
+                <input type="radio" name="gender" value="${gender}">${gender}
             </c:forEach>
-        </select><br>
-        <c:forEach var="gender" items="${requestScope.genders}">
-            <input type="radio" name="gender" value="${gender}">${gender}
-        </c:forEach>
-        <br>
+            <br>
+        </label>
         <button type="submit">Send</button>
         <c:if test="${not empty requestScope.errors}">
             <div style="color: red">
