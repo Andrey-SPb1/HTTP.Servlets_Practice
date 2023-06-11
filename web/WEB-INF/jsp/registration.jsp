@@ -14,6 +14,7 @@
     <title>Title</title>
 </head>
 <body>
+    <img src="${pageContext.request.contextPath}/images/users/phone.jpg" alt="User image">
     <form action="${pageContext.request.contextPath}/registration" method="post" enctype="multipart/form-data">
         <label for="nameId">Name:
             <input type="text" name="name" id="nameId">

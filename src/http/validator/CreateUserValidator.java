@@ -16,6 +16,9 @@ public class CreateUserValidator implements Validator<CreateUserDto> {
         if(!LocalDateFormatter.isValid(object.getBirthday())) {
             validationResult.add(Error.of("invalid.birthday", "Birthday is invalid"));
         }
+        if(object.getImage().getSubmittedFileName().isEmpty()) {
+            validationResult.add(Error.of("invalid.image", "Image is invalid"));
+        }
         if(object.getEmail().isEmpty()) {
             validationResult.add(Error.of("invalid.email", "Email is invalid"));
         }
