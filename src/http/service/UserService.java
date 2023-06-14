@@ -2,10 +2,14 @@ package http.service;
 
 import http.dao.UserDao;
 import http.dto.CreateUserDto;
+import http.dto.UserDto;
 import http.exception.ValidationException;
 import http.mapper.CreateUserMapper;
+import http.mapper.UserMapper;
 import http.validator.CreateUserValidator;
 import lombok.SneakyThrows;
+
+import java.util.Optional;
 
 public class UserService {
 
@@ -14,7 +18,13 @@ public class UserService {
     private final CreateUserValidator createUserValidator = CreateUserValidator.getInstance();
     private final UserDao userDao = UserDao.getInstance();
     private final CreateUserMapper createUserMapper = CreateUserMapper.getInstance();
+    private final UserMapper userMapper = UserMapper.getInstance();
     private final ImageService imageService = ImageService.getInstance();
+
+    public Optional<UserDto> login(String email, String password) {
+        return userDao.findByEmailAndPassword(email, password)
+                .map(userMapper::mapFrom);
+    }
 
 //    validation -> map -> userDao.save -> return id
     @SneakyThrows
