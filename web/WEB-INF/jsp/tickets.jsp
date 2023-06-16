@@ -18,7 +18,7 @@
         <h1>Купленные билеты</h1>
         <ul>
             <c:forEach var="ticket" items="${requestScope.tickets}">
-                <li>${fn:toLowerCase(ticket.seatNo)}</li>
+                <li>${fn:toUpperCase(ticket.seatNo)}</li>
             </c:forEach>
         </ul>
     </c:if>
